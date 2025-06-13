@@ -1,0 +1,452 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Nueva paleta de colores Bosque Pilar */
+    --bosque: 90 30% 18%; /* #2E3E20 */
+    --bosque-foreground: 0 0% 100%;
+    --bosque-dark: 90 35% 15%;
+    --bosque-light: 90 25% 25%;
+    --bosque-lighter: 90 20% 35%;
+    --bosque-lightest: 90 15% 85%;
+
+    --oliva: 80 25% 35%;
+    --oliva-dark: 80 30% 25%;
+    --oliva-light: 80 20% 45%;
+
+    --tierra: 35 30% 40%;
+    --tierra-dark: 35 35% 30%;
+    --tierra-light: 35 25% 50%;
+
+    --arena: 40 30% 85%;
+    --arena-dark: 40 35% 75%;
+    --arena-light: 40 25% 95%;
+
+    --accent: 35 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Variables del sistema */
+    --background: 40 30% 98%;
+    --foreground: 90 30% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 90 30% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 90 30% 18%;
+    --primary: 90 30% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 80 25% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 40 30% 96%;
+    --muted-foreground: 90 10% 40%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 90 15% 85%;
+    --input: 90 15% 85%;
+    --ring: 90 30% 18%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 90 35% 10%;
+    --foreground: 40 30% 98%;
+    --card: 90 35% 12%;
+    --card-foreground: 40 30% 98%;
+    --popover: 90 35% 12%;
+    --popover-foreground: 40 30% 98%;
+    --primary: 90 25% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 80 20% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 90 30% 15%;
+    --muted-foreground: 40 20% 80%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 90 30% 20%;
+    --input: 90 30% 20%;
+    --ring: 90 25% 25%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-wide;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism styles */
+.glass-card {
+  @apply bg-white/30 backdrop-blur-md border border-white/20 rounded-xl shadow-lg;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+}
+
+.glass-card-dark {
+  @apply bg-bosque-dark/30 backdrop-blur-md border border-bosque-lightest/20 rounded-xl shadow-lg;
+  background: linear-gradient(135deg, rgba(46, 62, 32, 0.3), rgba(46, 62, 32, 0.2));
+}
+
+.glass-button {
+  @apply bg-bosque/80 backdrop-blur-md border border-bosque-lightest/30 text-white rounded-lg shadow-md hover:bg-bosque transition-all duration-300;
+}
+
+.glass-button-outline {
+  @apply bg-white/10 backdrop-blur-md border border-bosque/30 text-bosque rounded-lg shadow-md hover:bg-white/20 transition-all duration-300;
+}
+
+.glass-input {
+  @apply bg-white/30 backdrop-blur-md border border-bosque-lightest/30 rounded-lg focus:ring-2 focus:ring-bosque/30 focus:border-bosque/50;
+}
+
+.section-gradient {
+  background: linear-gradient(to bottom, rgba(46, 62, 32, 0.05), rgba(46, 62, 32, 0.1));
+}
+
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(46, 62, 32, 0.7), rgba(46, 62, 32, 0.5));
+}
+
+.image-overlay {
+  background: linear-gradient(to top, rgba(46, 62, 32, 0.8), rgba(46, 62, 32, 0.1));
+}
+
+.amenity-card {
+  @apply glass-card hover:shadow-xl transition-all duration-300;
+  position: relative;
+  overflow: hidden;
+}
+
+.amenity-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #2e3e20, #8b5a2b);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.amenity-card:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-button {
+  @apply glass-card p-2 rounded-full hover:bg-white/40 transition-all duration-300;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated underline */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Enhanced visual elements */
+.feature-icon {
+  @apply w-12 h-12 rounded-full flex items-center justify-center bg-arena/50 text-bosque shadow-md;
+}
+
+.section-divider {
+  @apply w-20 h-1 bg-tierra rounded-full mx-auto my-8;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover-effect {
+  @apply transition-all duration-300 hover:shadow-xl hover:border-tierra/30;
+}
+
+/* Enhanced hero section styles */
+.hero-glass-card {
+  background: linear-gradient(135deg, rgba(46, 62, 32, 0.65), rgba(46, 62, 32, 0.45));
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.drop-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.drop-shadow-md {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* WhatsApp button animation */
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Responsive hero text adjustments */
+@media (max-width: 640px) {
+  .hero-glass-card h1 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.01em;
+  }
+
+  .hero-glass-card p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .hero-glass-card {
+    border: 2px solid CanvasText;
+  }
+
+  .hero-glass-card h1,
+  .hero-glass-card p {
+    color: CanvasText;
+  }
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Mejorar el toque en elementos interactivos */
+  button,
+  a[role="button"],
+  .glass-card,
+  .glass-button,
+  .glass-button-outline {
+    touch-action: manipulation;
+  }
+
+  /* Evitar que el texto sea demasiado pequeño */
+  p,
+  li,
+  a {
+    font-size: 0.9375rem;
+  }
+
+  /* Mejorar el espaciado vertical en móviles */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Mejorar la visualización de tarjetas en móviles */
+  .glass-card {
+    padding: 1rem;
+  }
+
+  /* Optimizar el scroll en dispositivos táctiles */
+  html,
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mejorar la visualización de imágenes en móviles */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Optimizaciones para el lightbox en dispositivos táctiles */
+.lightbox-touch-area {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 33.33%;
+  z-index: 100;
+}
+
+.lightbox-touch-area-left {
+  left: 0;
+}
+
+.lightbox-touch-area-right {
+  right: 0;
+}
+
+/* Mejorar la accesibilidad táctil */
+@media (pointer: coarse) {
+  .button,
+  .link,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevenir zoom no deseado en inputs en iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  input[type="email"] {
+    font-size: 16px;
+  }
+}
+
+/* Enhanced glassmorphism for hero section */
+.enhanced-glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.enhanced-glass-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* Section transitions */
+.section-transition {
+  position: relative;
+  z-index: 1;
+}
+
+.section-transition::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  z-index: -1;
+  pointer-events: none;
+}
