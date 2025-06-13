@@ -239,7 +239,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Hero Section - Enhanced for standalone presentation */}
-        <section className="relative min-h-[8vh] overflow-hidden flex items-center" ref={heroRef}>
+        <section className="relative min-h-[10vh] overflow-hidden flex items-center" ref={heroRef}>
             <motion.div className="absolute inset-0 z-0" style={{ y: heroY, opacity: heroOpacity }}>
               <div className="relative h-full w-full">
                 <ImageWithFallback
