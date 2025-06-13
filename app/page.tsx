@@ -63,6 +63,24 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+  // window resize
+  useEffect(() => {
+    const sendHeight = () => {
+      window.parent.postMessage(
+        {
+          type: 'setHeight',
+          height: document.documentElement.scrollHeight,
+        },
+        '*'
+      );
+    };
+
+    sendHeight(); // On load
+    const observer = new ResizeObserver(sendHeight);
+    observer.observe(document.body);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (aboutInView) {
