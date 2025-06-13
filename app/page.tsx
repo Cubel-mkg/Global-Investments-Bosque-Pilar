@@ -239,8 +239,7 @@ export default function Home() {
         </AnimatedSection>
 
         {/* Hero Section - Enhanced for standalone presentation */}
-        <section className="relative min-h-[90vh] overflow-hidden flex items-center" ref={heroRef}>
-          <div className="w-full max-h-[90vh] overflow-hidden">
+        <section className="relative min-h-[1vh] overflow-hidden flex items-center" ref={heroRef}>
             <motion.div className="absolute inset-0 z-0" style={{ y: heroY, opacity: heroOpacity }}>
               <div className="relative h-full w-full">
                 <ImageWithFallback
@@ -341,7 +340,6 @@ export default function Home() {
                 <ChevronDown className="h-8 w-8 text-white drop-shadow-md" />
               </Link>
             </motion.div>
-          </div>
         </section>
 
         {/* Key Data Points */}
