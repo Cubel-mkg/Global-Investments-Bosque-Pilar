@@ -63,6 +63,7 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+
   // window resize
   useEffect(() => {
     const sendHeight = () => {
@@ -239,106 +240,108 @@ export default function Home() {
 
         {/* Hero Section - Enhanced for standalone presentation */}
         <section className="relative min-h-[90vh] overflow-hidden flex items-center" ref={heroRef}>
-          <motion.div className="absolute inset-0 z-0" style={{ y: heroY, opacity: heroOpacity }}>
-            <div className="relative h-full w-full">
-              <ImageWithFallback
-                src="/images/Render Home Nuevo.jpg"
-                alt="Bosque Pilar Residencias de Lujo"
-                fill
-                className="object-cover brightness-[0.85]"
-                sizes="100vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-bosque/70 via-bosque/50 to-bosque/40" />
-            </div>
-          </motion.div>
-
-          <ParallaxBackground />
-
-          <motion.div
-            className="container relative z-10 py-32 md:py-0"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.2,
-              delay: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smoother animation
-            }}
-            style={{
-              // Prevent visual artifacts on mobile during scroll
-              willChange: "transform, opacity",
-              backfaceVisibility: "hidden",
-              perspective: 1000,
-            }}
-          >
-            <div className="enhanced-glass-card max-w-2xl p-8 md:p-14 mx-auto rounded-xl">
-              <div className="flex items-center mb-6">
-                <div className="w-20 h-1 bg-tierra rounded-full"></div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="ml-4 w-6 h-6 text-tierra-light"
-                >
-                  <path d="M12 2L7 7H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2l5 5 5-5h2c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-2l-5-5z" />
-                  <path d="M12 6v14" />
-                  <path d="M8 10c1.5 1 3.5 1 5 0 1.5-1 3.5-1 5 0" />
-                  <path d="M8 14c1.5 1 3.5 1 5 0 1.5-1 3.5-1 5 0" />
-                </svg>
+          <div className="w-full max-h-[90vh] overflow-hidden">
+            <motion.div className="absolute inset-0 z-0" style={{ y: heroY, opacity: heroOpacity }}>
+              <div className="relative h-full w-full">
+                <ImageWithFallback
+                  src="/images/Render Home Nuevo.jpg"
+                  alt="Bosque Pilar Residencias de Lujo"
+                  fill
+                  className="object-cover brightness-[0.85]"
+                  sizes="100vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-bosque/70 via-bosque/50 to-bosque/40" />
               </div>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.15] text-white drop-shadow-sm">
-                Donde <span className="text-tierra-light">Naturaleza</span> y{" "}
-                <span className="text-arena-light">Lujo</span> se Encuentran
-              </h1>
-              <p className="mt-6 text-lg md:text-xl text-white/95 drop-shadow-sm">
-                Bienvenido a Bosque Pilar, un concepto residencial único que fusiona diseño de vanguardia, confort
-                premium y compromiso ambiental en un entorno natural incomparable.
-              </p>
-              <motion.div
-                className="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-[#2E3E20] hover:bg-[#3a4f29] text-white font-medium border-0 rounded-md transition-all duration-300 px-8 py-7 h-auto w-full sm:w-auto text-lg"
-                  onClick={() => {
-                    const typologiesSection = document.getElementById("typologies")
-                    typologiesSection?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  Descubrir Residencias
-                </Button>
-                <Button
-                  size="lg"
-                  className="bg-transparent hover:bg-white/20 text-white font-medium border border-white/40 rounded-md transition-all duration-300 px-8 py-7 h-auto w-full sm:w-auto text-lg"
-                  onClick={() => {
-                    window.open(
-                      "https://drive.google.com/file/d/1Cro4oTzHoxuZ5Ns8XJPHbbRNSR7KGL04/view?usp=sharing",
-                      "_blank",
-                    )
-                  }}
-                >
-                  Descargar Brochure
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          <motion.div
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-          >
-            <Link href="#about">
-              <ChevronDown className="h-8 w-8 text-white drop-shadow-md" />
-            </Link>
-          </motion.div>
+            <ParallaxBackground />
+
+            <motion.div
+              className="container relative z-10 py-32 md:py-0"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 1.2,
+                delay: 0.3,
+                ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smoother animation
+              }}
+              style={{
+                // Prevent visual artifacts on mobile during scroll
+                willChange: "transform, opacity",
+                backfaceVisibility: "hidden",
+                perspective: 1000,
+              }}
+            >
+              <div className="enhanced-glass-card max-w-2xl p-8 md:p-14 mx-auto rounded-xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-20 h-1 bg-tierra rounded-full"></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="ml-4 w-6 h-6 text-tierra-light"
+                  >
+                    <path d="M12 2L7 7H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h2l5 5 5-5h2c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-2l-5-5z" />
+                    <path d="M12 6v14" />
+                    <path d="M8 10c1.5 1 3.5 1 5 0 1.5-1 3.5-1 5 0" />
+                    <path d="M8 14c1.5 1 3.5 1 5 0 1.5-1 3.5-1 5 0" />
+                  </svg>
+                </div>
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.15] text-white drop-shadow-sm">
+                  Donde <span className="text-tierra-light">Naturaleza</span> y{" "}
+                  <span className="text-arena-light">Lujo</span> se Encuentran
+                </h1>
+                <p className="mt-6 text-lg md:text-xl text-white/95 drop-shadow-sm">
+                  Bienvenido a Bosque Pilar, un concepto residencial único que fusiona diseño de vanguardia, confort
+                  premium y compromiso ambiental en un entorno natural incomparable.
+                </p>
+                <motion.div
+                  className="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                >
+                  <Button
+                    size="lg"
+                    className="bg-[#2E3E20] hover:bg-[#3a4f29] text-white font-medium border-0 rounded-md transition-all duration-300 px-8 py-7 h-auto w-full sm:w-auto text-lg"
+                    onClick={() => {
+                      const typologiesSection = document.getElementById("typologies")
+                      typologiesSection?.scrollIntoView({ behavior: "smooth" })
+                    }}
+                  >
+                    Descubrir Residencias
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-transparent hover:bg-white/20 text-white font-medium border border-white/40 rounded-md transition-all duration-300 px-8 py-7 h-auto w-full sm:w-auto text-lg"
+                    onClick={() => {
+                      window.open(
+                        "https://drive.google.com/file/d/1Cro4oTzHoxuZ5Ns8XJPHbbRNSR7KGL04/view?usp=sharing",
+                        "_blank",
+                      )
+                    }}
+                  >
+                    Descargar Brochure
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+            >
+              <Link href="#about">
+                <ChevronDown className="h-8 w-8 text-white drop-shadow-md" />
+              </Link>
+            </motion.div>
+          </div>
         </section>
 
         {/* Key Data Points */}
