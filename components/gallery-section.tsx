@@ -111,11 +111,16 @@ export function GallerySection() {
   }
 
   const openLightbox = (index: number) => {
+    console.log('opened')
+    const gallerySection = document.getElementById("gallery")
+    gallerySection?.scrollIntoView()
+    document.body.classList.add('no-scroll');
     setCurrentImageIndex(index)
     setLightboxOpen(true)
   }
 
   const closeLightbox = () => {
+    document.body.classList.remove('no-scroll');
     setLightboxOpen(false)
   }
 
