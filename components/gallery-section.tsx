@@ -111,7 +111,7 @@ export function GallerySection() {
   }
 
   const openLightbox = (index: number) => {
-    console.log('opened')
+    parent.postMessage({ type: "disableScroll" }, "*");
     const gallerySection = document.getElementById("gallery")
     gallerySection?.scrollIntoView()
     document.body.classList.add('no-scroll');
@@ -120,6 +120,7 @@ export function GallerySection() {
   }
 
   const closeLightbox = () => {
+    parent.postMessage({ type: "enableScroll" }, "*");
     document.body.classList.remove('no-scroll');
     setLightboxOpen(false)
   }
