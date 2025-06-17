@@ -111,8 +111,6 @@ export function GallerySection() {
   }
 
   const openLightbox = (index: number) => {
-    parent.postMessage({ type: "disableScroll" }, "*");
-    console.log("disableScroll")
     const gallerySection = document.getElementById("gallery")
     gallerySection?.scrollIntoView()
     document.body.classList.add('no-scroll');
@@ -158,7 +156,7 @@ export function GallerySection() {
           <div className="mt-8 relative px-4">
             <div ref={carouselRef} className="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory hide-scrollbar">
               {galleryImages.map((image, index) => (
-                <div key={index} className="min-w-[280px] snap-center" onClick={() => openLightbox(index)}>
+                <div key={index} className="min-w-[280px] snap-center">
                   <motion.div
                     className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-48"
                     whileHover={{ y: -5 }}
@@ -175,11 +173,11 @@ export function GallerySection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-bosque/70 via-bosque/20 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
 
                       {/* Zoom icon overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {/*<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="rounded-full bg-white/20 p-3 backdrop-blur-md">
                           <ZoomIn className="h-6 w-6 text-white" />
                         </div>
-                      </div>
+                      </div>*/}
                     </div>
                   </motion.div>
                   <div className="mt-2 bg-white/80 backdrop-blur-sm p-3 rounded-lg">
@@ -220,7 +218,7 @@ export function GallerySection() {
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => openLightbox(index)}
+                
               >
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   <ImageWithFallback
@@ -233,11 +231,11 @@ export function GallerySection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-bosque/70 via-bosque/20 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
 
                   {/* Zoom icon overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/*<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="rounded-full bg-white/20 p-3 backdrop-blur-md">
                       <ZoomIn className="h-6 w-6 text-white" />
                     </div>
-                  </div>
+                  </div>*/}
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -252,7 +250,13 @@ export function GallerySection() {
         )}
 
         <div className="mt-8 md:mt-10 text-center px-4 md:px-0">
-          <Button variant="glass">
+          <Button variant="glass" 
+                  onClick={() => {
+                    window.open(
+                      "https://drive.google.com/drive/u/0/folders/1jwTu80DOm870bdOFZ6erCNQmRKBfltq1",
+                      "_blank",
+                    )
+                  }}>
             Ver Galería Completa
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

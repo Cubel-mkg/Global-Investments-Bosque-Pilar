@@ -325,6 +325,18 @@ html {
   }
 }
 
+.home-section{
+  min-height: 10vh;
+}
+
+@media (max-width: 640px) {
+  .home-section{
+    min-height: 5vh;
+  }
+}
+
+
+
 /* High contrast mode support */
 @media (forced-colors: active) {
   .hero-glass-card {
